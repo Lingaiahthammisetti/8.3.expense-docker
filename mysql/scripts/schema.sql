@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS transactions;
-use transactions;
+USE transactions;
 
 CREATE TABLE IF NOT EXISTS transactions (
     id INT AUTO_INCREMENT PRIMARY_KEY,
