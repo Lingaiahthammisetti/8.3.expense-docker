@@ -13,13 +13,13 @@ echo  -e "$G Script started executing at:$TIMESTAMP $N"
 VALIDATE(){
 if [ $1 -ne 0 ]
 then 
-   echo -e "$2...$R FAITURE $N"
+   echo -e "$R $2... FAITURE $N"
    exit 1
 else
-   echo -e "$2.. $G SUCCESS $N"
+   echo -e "$G $2..  SUCCESS $N"
 fi
 }
-
+#checking root user or not.
 if [ $USERID -ne 0 ]
 then
    echo -e "$R Please run this script with root access $N"
