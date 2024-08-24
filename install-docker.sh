@@ -48,4 +48,3 @@ usermod -aG docker ec2-user &>>$LOGFILE
 VALIDATE $? "Adding ec2-user to docker group as secondary group"
 
 echo -e "$G Logout and login again $N"
-
