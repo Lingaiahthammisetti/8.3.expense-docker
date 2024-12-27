@@ -50,21 +50,21 @@ VALIDATE $? "Adding ec2-user to docker group as secondary group"
 echo -e "$G Logout and login again $N"
 
 
-# echo "******* Resize EBS Storage ********8"
-# lsblk &>>$LOGFILE
-# VALIDATE $? "check the partitions"
+echo "******* Resize EBS Storage ********8"
+lsblk &>>$LOGFILE
+VALIDATE $? "check the partitions"
 
-# # sudo growpart /dev/nvme0n1 4 &>>$LOGFILE
-# # VALIDATE $? "growpart to resize the existing partition to fill the available space"
+sudo growpart /dev/xvda4 4 &>>$LOGFILE
+VALIDATE $? "growpart to resize the existing partition to fill the available space"
 
-# sudo lvextend -l +50%FREE /dev/RootVG/rootVol &>>$LOGFILE
-# VALIDATE $? "Extend the Logical Volumes Decide how much space to allocate to each logical volume."
+sudo lvextend -l +50%FREE /dev/RootVG/rootVol &>>$LOGFILE
+VALIDATE $? "Extend the Logical Volumes Decide how much space to allocate to each logical volume."
 
-# sudo lvextend -l +50%FREE /dev/RootVG/varVol &>>$LOGFILE
-# VALIDATE $? "Extend the Logical Volumes Decide how much space to allocate to each logical volume.-2"
+sudo lvextend -l +50%FREE /dev/RootVG/varVol &>>$LOGFILE
+VALIDATE $? "Extend the Logical Volumes Decide how much space to allocate to each logical volume.-2"
 
-# sudo xfs_growfs / &>>$LOGFILE
-# VALIDATE $? "For the root filesystem:"
+sudo xfs_growfs / &>>$LOGFILE
+VALIDATE $? "For the root filesystem:"
 
-# sudo xfs_growfs /var &>>$LOGFILE
-# VALIDATE $? "For the /var filesystem:"
+sudo xfs_growfs /var &>>$LOGFILE
+VALIDATE $? "For the /var filesystem:"
