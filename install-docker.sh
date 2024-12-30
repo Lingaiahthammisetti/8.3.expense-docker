@@ -54,7 +54,7 @@ echo "******* Resize EBS Storage ********8"
 lsblk &>>$LOGFILE
 VALIDATE $? "check the partitions"
 
-sudo growpart /dev/xvda 4 &>>$LOGFILE
+sudo growpart /dev/nvme0n1 4 &>>$LOGFILE #t3.micro used only
 VALIDATE $? "growpart to resize the existing partition to fill the available space"
 
 sudo lvextend -l +50%FREE /dev/RootVG/rootVol &>>$LOGFILE
